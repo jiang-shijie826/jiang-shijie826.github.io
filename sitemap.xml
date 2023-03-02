@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jiang-shijie826.github.io/repository/index.html</loc>
+    
+    <lastmod>2023-03-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jiang-shijie826.github.io/2023/03/02/%E8%B6%A3%E5%91%B3%E8%B5%9B%E8%B7%91/</loc>
     
     <lastmod>2023-03-02</lastmod>
@@ -20,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://jiang-shijie826.github.io/books/index.html</loc>
+    <loc>https://jiang-shijie826.github.io/links/index.html</loc>
     
     <lastmod>2023-02-15</lastmod>
     
@@ -29,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://jiang-shijie826.github.io/links/index.html</loc>
+    <loc>https://jiang-shijie826.github.io/categories/index.html</loc>
     
     <lastmod>2023-02-15</lastmod>
     
@@ -47,16 +56,7 @@
   </url>
   
   <url>
-    <loc>https://jiang-shijie826.github.io/repository/index.html</loc>
-    
-    <lastmod>2023-02-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jiang-shijie826.github.io/categories/index.html</loc>
+    <loc>https://jiang-shijie826.github.io/books/index.html</loc>
     
     <lastmod>2023-02-15</lastmod>
     
