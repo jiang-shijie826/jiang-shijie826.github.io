@@ -6,7 +6,7 @@
   <link href="https://jiang-shijie826.github.io/atom.xml" rel="self"/>
   
   <link href="https://jiang-shijie826.github.io/"/>
-  <updated>2023-05-26T06:25:12.203Z</updated>
+  <updated>2023-05-31T06:01:20.280Z</updated>
   <id>https://jiang-shijie826.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VUE3实现组件刷新</title>
+    <link href="https://jiang-shijie826.github.io/2023/05/31/VUE3%E5%AE%9E%E7%8E%B0%E7%BB%84%E4%BB%B6%E5%88%B7%E6%96%B0/"/>
+    <id>https://jiang-shijie826.github.io/2023/05/31/VUE3%E5%AE%9E%E7%8E%B0%E7%BB%84%E4%BB%B6%E5%88%B7%E6%96%B0/</id>
+    <published>2023-05-31T05:54:08.000Z</published>
+    <updated>2023-05-31T06:01:20.280Z</updated>
+    
+    <content type="html"><![CDATA[<p>VUE3中实现组件刷新</p><img src="https://img2.baidu.com/it/u=4154503761,1097204876&fm=253&fmt=auto&app=138&f=JPEG?w=888&h=500" style="zoom:50%;"><p>provide ： 向子组件以及子孙组件传递数据。接收两个参数，第一个参数是 key，即数据的名称；第二个参数为 value，即数据的值<br>inject ： 接收父组件或祖先组件传递过来的数据。接收一个参数 key，即父组件或祖先组件传递的数据名称</p><p>通过依赖注入（provide和inject）实现自定义页面刷新事件</p><p>原理： 给app.vue中router-view绑定v-if事件，在函数中控制v-if的值在短时间内由true到false再到true,从而使页面达到刷新效果</p><p><strong>刷新实现</strong></p><p>APP.VUE</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; RouterView &#125; from &#x27;vue-router&#x27;</span><br><span class="line">import &#123; ref, provide, nextTick &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">const isRouterActive = ref(true)</span><br><span class="line">provide(&#x27;reload&#x27;, () =&gt; &#123;</span><br><span class="line">  isRouterActive.value = false</span><br><span class="line">  nextTick(() =&gt; &#123;</span><br><span class="line">    isRouterActive.value = true</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">&lt;router-view v-if=&quot;isRouterActive&quot;&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;/emplate&gt;</span><br></pre></td></tr></table></figure><p><strong>刷新页面</strong><br>需要用到刷新事件的子组件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script lang=&quot;ts&quot; setup&gt;</span><br><span class="line">import &#123; reactive, inject  &#125; from &#x27;vue&#x27;</span><br><span class="line">//刷新页面</span><br><span class="line">//注入刷新事件,这里括号中的参数要对应上前面provide中的第一个参数 </span><br><span class="line">const reload: any = inject(&#x27;reload&#x27;)</span><br><span class="line">const jump = (item: any) =&gt; &#123;</span><br><span class="line">  ....</span><br><span class="line">  ....</span><br><span class="line">  reload();</span><br><span class="line">    ....</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;VUE3中实现组件刷新&lt;/p&gt;
+&lt;img src=&quot;https://img2.baidu.com/it/u=4154503761,1097204876&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=888&amp;h=500&quot; style=&quot;zoom:50%;&quot;</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="https://jiang-shijie826.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="VUE3" scheme="https://jiang-shijie826.github.io/tags/VUE3/"/>
+    
+  </entry>
   
   <entry>
     <title>vue3复制功能实现（vue-clipboard3）</title>
